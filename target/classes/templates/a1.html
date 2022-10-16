@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:method="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物管理系统</title>
+    <!--导入核心文件-->
+    <script src="../static/bootstrap3/js/holder.js"></script>
+    <link href="../static/bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../static/bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../static/bootstrap3/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="row">
+        <h2><p style="text-align: center;"><b>后台管理系统</b></p></h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>后台管理</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#用户信息">管理员信息</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">用户信息</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">宠物管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">领养管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">评论管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">团队活动管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">志愿者的申请</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">同意领养列表</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">不同意领养列表</a></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-sm-8">
+
+            <div><h3>管理员信息管理</h3></div>
+            <div class="r1">
+                <form class="form-inline">
+                    <div class="form-group">
+                      <label for="exampleInputName2">管理员名称</label>
+                      <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入管理员名称">
+                    </div>
+                    <button type="submit" class="btn btn-primary">查询</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">新增</button>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">新增管理员信息</h4>
+                          </div>
+                          <div class="modal-body">
+                            <!-- 模态框里的内容 -->
+
+                            <form class="form-horizontal">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <label>账号</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="账号">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>密码</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="密码">
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>真实姓名</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="真实姓名">
+                                </div>
+                                <div class="col-sm-6">
+                                  <div>
+                                    <label class="col-md-4">性别：</label>
+                                    <label class="radio-inline">
+                                      <input id="gender-male" type="radio" name="gender" value="1">男
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input id="gender-female" type="radio" name="gender" value="0">女
+                                    </label>
+                                  </div>
+                                
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>电话号码</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="电话号码">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>Email</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="Email">
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>出生年月</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="2000-10-1">
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>个人介绍</label>
+                                  <textarea style="height: 100px;"></textarea>
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label for="exampleInputFile">头像</label>
+                                  <input type="file" id="exampleInputFile">
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+            </div>
+
+            <table class="table table-bordered t1">
+                <caption class="c1"><h4>管理员消息列表</h4></caption>
+                <thead>
+                  <tr>
+                    <th>编号</th>
+                    <th>管理员账号</th>
+                    <th>真实姓名</th>
+                    <th>电话</th>
+                    <th>Email</th>
+                    <th>生日</th>
+                    <th>性别</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody class="tbody">
+                <tr th:each="person:${pageInfo.list}"><!--这里的list是哪来的？？？-->
+                    <td th:text="${person.id}"></td>
+                    <td th:text="${person.adminname}"></td>
+                    <td th:text="${person.adminpwd}"></td>
+                    <td th:text="${person.realname}"></td>
+                    <td th:text="${person.telephone}"></td>
+                    <td th:text="${person.email}"></td>
+                    <td th:text="${person.birthday}"></td>
+                    <td th:text="${person.sex}"></td>
+                </tr>
+                </tbody>
+              </table>
+        </div>
+        <!--分页插件-->
+        <p>当前 <span th:text="${pageInfo.pageNum}"></span> 页,总 <span th:text="${pageInfo.pages}"></span> 页,共 <span th:text="${pageInfo.total}"></span> 条记录</p>
+        <a th:href="@{/qq}">首页</a>
+        <a th:href="@{/qq(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}">上一页</a>
+        <a th:href="@{/qq(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a>
+        <a th:href="@{/qq(pageNum=${pageInfo.pages})}">尾页</a>
+    </div>
+
+    
+</body>
+
+<script>
+
+</script>
+
+  
+</html>

@@ -1,0 +1,27 @@
+.header1{
+    height: 50px;
+    background-color: aqua;
+}
+.ul1{
+    margin-top: 10px;
+}
+li{
+    display: inline;
+    list-style: none;
+    margin-left: 100px;
+    font-size: larger;
+}
+a{
+    text-decoration: none;
+}
+.li-btn{
+    margin-left: 70px;
+    margin-top: 10px;
+}
+.r1{
+    background-color: aqua;
+}
+.img1{
+    width: 90px;
+    height: 90px;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>宠物管理系统</title>
+		<!--导入核心文件-->
+		<script src="../../bootstrap3/js/holder.js"></script>
+		<link href="../../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<script src="../../bootstrap3/jquery-1.8.3.min.js"></script>
+		<script src="../../bootstrap3/js/bootstrap.js"></script>
+		  <!-- 字体图标 -->
+		  <link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+		  <script src="../bootstrap3/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		#f1{
+			margin-top: 50px;
+		}
+	</style>
+	<body>	
+		<div class="container">
+			<form class="form-horizontal" id="form_login">
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label col-sm-offset-2">用户名：</label>
+			    <div class="col-sm-3">
+			      <input type="adminname" name="adminname" class="form-control" id="inputEmail3" placeholder="用户名">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">密码：</label>
+			    <div class="col-sm-3">
+			      <input type="password" name="adminpwd" class="form-control" id="inputPassword3" placeholder="密码">
+			    </div>
+			  </div>
+			</form>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-10">
+					<button type="button" class="btn btn-default" id="btn_login">登录</button>
+					<button type="button" class="btn btn-default col-sm-offset-1"><a href="registry.html" style="color: black; text-decoration: none;">注册</a></button>
+				</div>
+			</div>
+		</div>
+
+	<script>
+		$("#btn_login").click(function (){
+			console.log($("#form_login").serialize());
+			$.ajax({
+				url:"/admin/login",
+				dataType:"json",
+				type:"get",
+				data:$("#form_login").serialize(),
+				success:function (json){
+					if(json.state==200){
+						window.location.href="admininfo.html";
+						console.log(200);
+					}
+					else{
+						alert("用户名或密码输入错误");
+					}
+				},
+				error:function (xhr) {
+					console.log(xhr.message);
+				}
+			})
+		})
+	</script>
+	</body>
+</html>

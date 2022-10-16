@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>宠物管理系统</title>
+	<!--导入核心文件-->
+		<script src="../../bootstrap3/js/holder.js"></script>
+		<link href="../../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<script src="../../bootstrap3/jquery-1.8.3.min.js"></script>
+		<script src="../../bootstrap3/js/bootstrap.js"></script>
+		<!-- 字体图标 -->
+		<link rel="stylesheet" href="../bootstrap3/font-awesome-4.7.0/css/font-awesome.css" />
+		<script src="../bootstrap3/js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		#f1{
+			margin-top: 50px;
+		}
+		#l1{
+			font-size: 20px;
+		}
+		#d1{
+			margin-right: 20px;
+		}
+	</style>
+	<body>
+		<div class="container">
+			<form class="form-horizontal" id="reg_form">
+
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label col-sm-offset-2">用户名：</label>
+			    <div class="col-sm-3">
+			      <input type="text" name="adminname" class="form-control" id="inputEmail3" placeholder="用户名">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">密码：</label>
+			    <div class="col-sm-3">
+			      <input type="text" name="pwd" class="form-control" id="inputPassword3" placeholder="密码">
+			    </div>
+			  </div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">真实姓名：</label>
+					<div class="col-sm-3">
+						<input type="text" name="realname" class="form-control" id="inputPassword3" placeholder="真实姓名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">生日：</label>
+					<div class="col-sm-3">
+						<input type="text" name="birthday" class="form-control" id="inputPassword3" placeholder="生日">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">介绍：</label>
+					<div class="col-sm-3">
+						<input type="text" name="remark" class="form-control" id="inputPassword3" placeholder="介绍">
+					</div>
+				</div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">性别：</label>
+			    <div class="col-sm-3">
+			      <input type="text" name="gender" class="form-control" id="inputPassword3" placeholder="性别">
+			    </div>
+			  </div>
+				<div class="form-group">
+					<label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">电话号码：</label>
+					<div class="col-sm-3">
+						<input type="text" name="telephone" class="form-control" id="inputPassword3" placeholder="电话号码">
+					</div>
+				</div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label col-sm-offset-2">Email：</label>
+			    <div class="col-sm-3">
+			      <input type="text" name="email" class="form-control" id="inputPassword3" placeholder="Email">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <div class="col-sm-offset-4 col-sm-10">
+			    </div>
+			  </div>
+			</form>
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-10">
+					<button type="button" class="btn btn-default"><a href="login.html" style="color: black; text-decoration: none;">登录</a></button>
+					<button type="button" class="btn btn-default col-sm-offset-1" id="registry">注册</button>
+				</div>
+			</div>
+
+		</div>
+
+	<script>
+		$("#registry").click(function (){
+			console.log($("#reg_form").serialize());
+			$.ajax({
+				url:"/admin/reg",
+				dataType:"json",
+				type:"post",
+				data:$("#reg_form").serialize(),
+				success:function (json){
+					if(json.state==200){
+						//刷新页面
+						window.location.href="../user/index.html";
+						console.log(200);
+					}
+				},
+				error:function (xhr) {
+					console.log(xhr.message);
+				}
+			})
+		})
+	</script>
+	</body>
+</html>

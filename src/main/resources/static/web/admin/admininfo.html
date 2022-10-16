@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物管理系统</title>
+    <!--导入核心文件-->
+    <script src="../../bootstrap3/js/holder.js"></script>
+    <link href="../../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <script src="../../bootstrap3/jquery-1.9.1.min.js"></script>
+    <script src="../../bootstrap3/js/bootstrap.js"></script>
+</head>
+<body>
+<!-- 新增模态框 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="add_myModalLabel">新增管理员信息</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 模态框里的内容 -->
+                <form class="form-horizontal" id="add_modal">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>账号</label>
+                            <input type="text" name="adminname" class="form-control" id="adminname_add_input" placeholder="账号">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>密码</label>
+                            <input type="text" name="pwd" class="form-control" id="password_add_input" placeholder="密码">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>真实姓名</label>
+                            <input type="text" name="realname" class="form-control" id="realname_add_input" placeholder="真实姓名">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>电话号码</label>
+                            <input type="text" name="telephone" class="form-control" id="telephone_add_input" placeholder="电话号码">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" id="email_add_input" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>出生年月</label>
+                            <input type="text" name="birthday" class="form-control" id="birthday_add_input" placeholder="2000-10-1">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>个人介绍</label>
+                            <textarea name="remark" type="text" style="height: 100px;"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="save_btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改模态框-->
+<div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="update_myModalLabel">修改管理员信息</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 模态框里的内容 -->
+                <form class="form-horizontal" id="form_update">
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>真实姓名</label>
+                            <input type="text" name="realname" class="form-control" id="realname_update_input" placeholder="真实姓名">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>密码</label>
+                            <input type="text" name="adminpwd" class="form-control" id="adminpwd_update_input" placeholder="密码">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>电话号码</label>
+                            <input type="text" name="telephone" class="form-control" id="telephone_update_input" placeholder="电话号码">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" id="email_update_input" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>出生年月</label>
+                            <input type="text" name="birthday" class="form-control" id="bir_update_input" placeholder="2000-10-1">
+                        </div>
+                    </div>
+                    <div class="row r2">
+                        <div class="col-sm-6">
+                            <label>个人介绍</label>
+                            <textarea name="remark" id="id_remark" type="text" style="height: 100px;"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="update_btn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h2><p style="text-align: center;"><b>后台管理系统</b></p></h2>
+</div>
+
+<div class="row">
+    <div class="col-sm-2 col-sm-offset-1">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>后台管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="#用户信息">管理员信息</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">用户信息</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">宠物管理</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">领养管理</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">评论管理</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">团队活动管理</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">志愿者的申请</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">同意领养列表</a></td>
+            </tr>
+            <tr>
+                <td><a href="#用户信息">不同意领养列表</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-sm-8">
+
+        <div><h3>管理员信息管理</h3></div>
+        <div class="r1">
+            <form class="form-inline" id="select_form">
+                <div class="form-group">
+                    <label>管理员名称</label>
+                    <input type="text" class="form-control" id="input_realname" placeholder="请输入真实名称">
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-select">查询</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" id="btn_add" data-toggle="modal" data-target="#myModal">新增</button>
+                <button type="button" class="btn btn-danger pull-right"><a href="../user/index.html" style="color: white">主页</a></button>
+            </form>
+        </div>
+        <table class="table table-bordered t1">
+            <caption class="c1"><h4>管理员消息列表</h4></caption>
+            <thead>
+            <tr>
+                <th>编号</th>
+                <th>管理员账号</th>
+                <th>真实姓名</th>
+                <th>电话</th>
+                <th>Email</th>
+                <th>生日</th>
+                <th>密码</th>
+                <th>操作</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody class="tbody">
+            <tr>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td>560001</td>
+                <td>Tanmay</td>
+                <td>Bangalore</td>
+                <td>560001</td>
+                <td>Tanmay</td>
+                <td>
+                    <button type="button" class="btn btn-primary">修改</button>
+                    <button type="button" class="btn btn-danger">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-8">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+<script>
+    //打开页面显示全部数据
+    $(document).ready(function () {
+        show_admininfo();
+    });
+
+    //新增数据
+    $("#save_btn").click(function (){
+        console.log($("#add_modal").serialize());
+        $.ajax({
+            url:"/admin/insert_one",
+            dataType:"json",
+            type:"post",
+            data:$("#add_modal").serialize(),
+            success:function (json){
+                if(json.state==200){
+                    //刷新页面
+                    location.reload(true);
+                    $("#add_modal").modal('hide');
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        })
+    })
+    //查询单个数据
+    $("#btn-select").click(function (){
+        $(".tbody").empty();
+        $.ajax({
+            url:"/admin/selectone_by_realname",
+            dataType:"json",
+            type:"get",
+            data:"realname="+$("#input_realname").val(),
+            success:function (json){
+                var list=json.data;
+                for(var i=0;i<list.length;i++){
+                    let tr = '<td>#{id}</td>\n'+
+                        '<td>#{remark}</td>\n'+
+                        '<td>#{realname}</td>\n'+
+                        '<td>#{telephone}</td>\n'+
+                        '<td>#{email}</td>\n'+
+                        '<td>#{birthday}</td>\n'+
+                        '<td>#{adminpwd}</td>\n';
+                    var update_btn1 = $("<button></button>").addClass("btn btn-primary btn_update").append("修改");
+                    var del_btn = $("<button></button>").addClass("btn btn-danger btn_del").append("删除");
+                    //为编辑按钮添加一个自定义的属性，来表示当前员工id
+                    update_btn1.attr("update-id",list[i].id);
+                    del_btn.attr("del-id",list[i].id);
+                    //del_btn.attr("del-id",json.data.id);这个方式不知道为什么设置不了
+                    var btn_update1 = $("<td></td>").append(update_btn1);
+                    var btn_del = $("<td></td>").append(del_btn);
+                    //data-toggle="modal" data-target="#update_modal"这些属性没加
+                    tr=tr.replace(/#{id}/g,list[i].id);
+                    tr=tr.replace(/#{remark}/g,list[i].remark);
+                    tr=tr.replace(/#{realname}/g,list[i].realname);
+                    tr=tr.replace(/#{telephone}/g,list[i].telephone);
+                    tr=tr.replace(/#{email}/g,list[i].email);
+                    tr=tr.replace(/#{birthday}/g,list[i].birthday);
+                    tr=tr.replace(/#{adminpwd}/g,list[i].adminpwd);
+                    $("<tr></tr>").append(tr)
+                        .append(btn_update1)
+                        .append(btn_del)
+                        .appendTo(".t1 tbody");
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        });
+        $("#input_realname").html(" ");
+    })
+    //删除
+    $(document).on("click",".btn_del",function (){
+        $.ajax({
+            url:"/admin/del_byid",
+            dataType:"json",
+            type:"get",
+            data:"id="+$(this).attr("del-id"),
+            success:function (json){
+                if(json.state==200){
+                    location.reload(true);
+                    console.log(200);
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        });
+    })
+    //修改信息
+    $(document).on("click",".btn_update",function (){
+        //弹出模态框
+        $("#update_modal").modal({
+            backdrop:"static"
+        });
+        getAdmin($(this).attr("update-id"));
+        $("#update_btn").attr("update-id",$(this).attr("update-id"));
+    });
+    //保存模态框的信息
+    $(document).on("click","#update_btn",function (){
+        $.ajax({
+            url:"/admin/update_select/"+$(this).attr("update-id"),
+            dataType:"json",
+            type:"post",
+            data:$("#form_update").serialize(),
+            success:function (json){
+                if(json.state==200){
+                    $("#update_modal").modal('hide');
+                    location.reload(true);
+                    console.log(200);
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        });
+    })
+    //获取修改模态框信息
+    function getAdmin(id) {
+        $.ajax({
+            url:"/admin/selectone_byid",
+            dataType:"json",
+            type:"get",
+            data:"id="+id,
+            success:function (json){
+                if(json.state==200){
+                    //console.log(200);
+                    $("#realname_update_input").val(json.data.realname);
+                    $("#telephone_update_input").val(json.data.telephone);
+                    $("#email_update_input").val(json.data.email);
+                    $("#bir_update_input").val(json.data.birthday);
+                    $("#id_remark").val(json.data.remark);
+                    $("#adminpwd_update_input").val(json.data.adminpwd);
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        })
+    }
+    //打开页面显示全部数据
+    function show_admininfo() {
+        $(".tbody").empty();
+        $.ajax({
+            url:"/admin/selectall_adminInfo",
+            type:"get",
+            dataType:"json",
+            success:function (json) {
+                var list=json.data;
+                for(var i=0;i<list.length;i++){
+                    let tr = '<td>#{id}</td>\n'+
+                        '<td>#{remark}</td>\n'+
+                        '<td>#{realname}</td>\n'+
+                        '<td>#{telephone}</td>\n'+
+                        '<td>#{email}</td>\n'+
+                        '<td>#{birthday}</td>\n'+
+                        '<td>#{adminpwd}</td>\n';
+                    var update_btn1 = $("<button></button>").addClass("btn btn-primary btn_update").append("修改");
+                    var del_btn = $("<button></button>").addClass("btn btn-danger btn_del").append("删除");
+                    //为编辑按钮添加一个自定义的属性，来表示当前员工id
+                    update_btn1.attr("update-id",list[i].id);
+                    del_btn.attr("del-id",list[i].id);
+                    //del_btn.attr("del-id",json.data.id);这个方式不知道为什么设置不了
+                    var btn_update1 = $("<td></td>").append(update_btn1);
+                    var btn_del = $("<td></td>").append(del_btn);
+                    //data-toggle="modal" data-target="#update_modal"这些属性没加
+                    tr=tr.replace(/#{id}/g,list[i].id);
+                    tr=tr.replace(/#{remark}/g,list[i].remark);
+                    tr=tr.replace(/#{realname}/g,list[i].realname);
+                    tr=tr.replace(/#{telephone}/g,list[i].telephone);
+                    tr=tr.replace(/#{email}/g,list[i].email);
+                    tr=tr.replace(/#{birthday}/g,list[i].birthday);
+                    tr=tr.replace(/#{adminpwd}/g,list[i].adminpwd);
+                    $("<tr></tr>").append(tr)
+                                .append(btn_update1)
+                                .append(btn_del)
+                        .appendTo(".t1 tbody");
+                }
+            },
+            error:function (xhr) {
+                console.log(xhr.message);
+            }
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+.header1{
+    height: 50px;
+    background-color: aqua;
+}
+.ul1{
+    margin-top: 10px;
+}
+.li-btn{
+    margin-left: 70px;
+    margin-top: 10px;
+}
+.li1{
+    display: inline;
+    list-style: none;
+    margin-left: 100px;
+    font-size: larger;
+}
+a{
+    text-decoration: none;
+}
+li{
+    display: inline;
+    list-style: none;
+    margin-left: 100px;
+    font-size: larger;
+}
+h1{
+    text-align: center;
+}
+.i1{
+    margin-top: 20px;
+}
+.div2{
+    margin-top: 40px;
+}
+.img1{
+    width: 24%;
+}

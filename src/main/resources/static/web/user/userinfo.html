@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物管理系统</title>
+    <!--导入核心文件-->
+	<script src="../bootstrap3/js/holder.js"></script>
+    <script src="../../bootstrap3/js/holder.js"></script>
+	<link href="../../bootstrap3/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<script src="../../bootstrap3/jquery-1.9.1.min.js"></script>
+	<script src="../../bootstrap3/js/bootstrap.js"></script>
+
+    <script src="../../css/user/userinfo.css"></script>
+		
+</head>
+<body>
+    <div class="row">
+        <h2><p style="text-align: center;"><b>后台管理系统</b></p></h2>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>后台管理</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="#用户信息">管理员信息</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">用户信息</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">宠物管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">领养管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">评论管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">团队活动管理</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">志愿者的申请</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">同意领养列表</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href="#用户信息">不同意领养列表</a></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-sm-8">
+
+            <div><h3>用户信息管理</h3></div>
+            <div class="r1">
+                <form class="form-inline">
+                    <div class="form-group">
+                      <label for="exampleInputName2">用户名称</label>
+                      <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入用户名称">
+                    </div>
+                    <button type="submit" class="btn btn-primary">查询</button>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">新增</button>
+                    <!-- 模态框 -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">新增用户信息</h4>
+                          </div>
+                          <div class="modal-body">
+                            <!-- 模态框里的内容 -->
+
+                            <form class="form-horizontal">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <label>用户名字</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="账号">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>用户密码</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="密码">
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <div>
+                                    <label class="col-md-4">性别：</label>
+                                    <label class="radio-inline">
+                                      <input id="gender-male" type="radio" name="gender" value="1">男
+                                    </label>
+                                    <label class="radio-inline">
+                                      <input id="gender-female" type="radio" name="gender" value="0">女
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>年龄</label>
+                                    <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="真实姓名">
+                                  </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>电话号码</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="电话号码">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>Email</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="Email">
+                                </div>
+                              </div>
+                              <div class="row r2">
+                                <div class="col-sm-6">
+                                  <label>地址</label>
+                                  <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="电话号码">
+                                </div>
+                                <div class="col-sm-6">
+                                  <label>经历</label>
+                                  <select>
+                                    <option>有领养经历</option>
+                                    <option>无领养经历</option>
+                                  </select>
+                                </div>
+                              </div>
+                              
+                            </form>
+                          </div>
+
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">保存</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--修改模态框-->
+                    <div class="modal fade" id="update_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">新增用户信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- 模态框里的内容 -->
+
+                                    <form class="form-horizontal">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <label>用户名字</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="账号">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>用户密码</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="密码">
+                                            </div>
+                                        </div>
+                                        <div class="row r2">
+                                            <div class="col-sm-6">
+                                                <div>
+                                                    <label class="col-md-4">性别：</label>
+                                                    <label class="radio-inline">
+                                                        <input id="gender-male" type="radio" name="gender" value="1">男
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input id="gender-female" type="radio" name="gender" value="0">女
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>年龄</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="真实姓名">
+                                            </div>
+                                        </div>
+                                        <div class="row r2">
+                                            <div class="col-sm-6">
+                                                <label>电话号码</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="电话号码">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>Email</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="Email">
+                                            </div>
+                                        </div>
+                                        <div class="row r2">
+                                            <div class="col-sm-6">
+                                                <label>地址</label>
+                                                <input type="text" name="empName" class="form-control" id="empName_add_input" placeholder="电话号码">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <label>经历</label>
+                                                <select>
+                                                    <option>有领养经历</option>
+                                                    <option>无领养经历</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="button" class="btn btn-primary">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <table class="table table-bordered t1">
+                <caption class="c1"><h4>管理员消息列表</h4></caption>
+                <thead>
+                  <tr>
+                    <th>编号</th>
+                    <th>用户名</th>
+                    <th>操作</th>
+                    <th>年龄</th>
+                    <th>电话</th>
+                    <th>地址</th>
+                    <th>有无领养</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+                  <tr>
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                    <td>Tanmay</td>
+                    <td>Bangalore</td>
+                    <td>560001</td>
+                    <td>560001</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">修改</button>                 
+                        <button type="button" class="btn btn-danger">删除</button>
+                    </td>
+                  </tr>                  
+                </tbody>
+              </table>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-offset-8">
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                  <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+    </div>
+
+    <script>
+        //打开页面显示全部数据
+        $(document).ready(function () {
+            show_userinfo();
+        });
+
+        $(document).on("click",".btn_update",function (){
+            console.log(123456);
+        })
+        $(document).on("click",".btn_del",function (){
+            console.log(123456);
+        })
+        function show_userinfo() {
+            $(".tbody").empty();
+            $.ajax({
+                url:"/admin/selectall_adminInfo",
+                type:"get",
+                dataType:"json",
+                success:function (json) {
+                    var list=json.data;
+                    for(var i=0;i<list.length;i++){
+                        let tr = '<tr>\n'+
+                            '<td>#{id}</td>\n'+
+                            '<td>#{remark}</td>\n'+
+                            '<td>#{realname}</td>\n'+
+                            '<td>#{telphone}</td>\n'+
+                            '<td>#{email}</td>\n'+
+                            '<td>#{birthday}</td>\n'+
+                            '<td>#{sex}</td>\n'+
+                            '<td><button type="button" class="btn btn-primary btn_update" data-toggle="modal" data-target="#update_modal">修改</button>\n' +
+                            '<td><button type="button" class="btn btn-danger btn_del">删除</button>\n' +
+                            '</tr>';
+                        tr=tr.replace(/#{id}/g,list[i].id);
+                        tr=tr.replace(/#{remark}/g,list[i].remark);
+                        tr=tr.replace(/#{realname}/g,list[i].realname);
+                        tr=tr.replace(/#{telphone}/g,list[i].telphone);
+                        tr=tr.replace(/#{email}/g,list[i].email);
+                        tr=tr.replace(/#{birthday}/g,list[i].birthday);
+                        tr=tr.replace(/#{sex}/g,list[i].sex);
+                        $(".tbody").append(tr);
+                    }
+                },
+                error:function (xhr) {
+                    console.log(xhr.message);
+                }
+            });
+        }
+    </script>
+</body>
+
+
+  
+</html>
