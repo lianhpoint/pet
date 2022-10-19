@@ -28,15 +28,15 @@ DROP TABLE IF EXISTS `admins`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `adminName` varchar(20) NOT NULL COMMENT '管理员的名字',
-  `adminPwd` varchar(20) NOT NULL COMMENT '密码',
-  `realName` varchar(20) NOT NULL COMMENT '真实的名字',
-  `telephone` varchar(20) NOT NULL COMMENT '电话',
-  `Email` varchar(20) NOT NULL,
-  `birthday` date NOT NULL,
-  `sex` varchar(3) NOT NULL,
+  `adminName` varchar(20)  COMMENT '管理员的名字',
+  `adminPwd` varchar(20)  COMMENT '密码',
+  `realName` varchar(20)  COMMENT '真实的名字',
+  `telephone` varchar(20)  COMMENT '电话',
+  `Email` varchar(20) ,
+  `birthday` date ,
+  `sex` varchar(3) ,
   `pic` varchar(100) DEFAULT 'a.png',
-  `remark` varchar(255) NOT NULL,
+  `remark` varchar(255) ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
