@@ -33,7 +33,7 @@ CREATE TABLE `admins` (
   `realName` varchar(20)  COMMENT '真实的名字',
   `telephone` varchar(20)  COMMENT '电话',
   `Email` varchar(20) ,
-  `birthday` date ,
+  `birthday` varchar(30) ,
   `sex` varchar(3) ,
   `pic` varchar(100) DEFAULT 'a.png',
   `remark` varchar(255) ,
